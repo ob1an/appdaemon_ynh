@@ -59,7 +59,7 @@ then
     ynh_config_add --template="hello.py" --destination="$data_dir/config/apps/hello.py"
 else
     ynh_script_progression "Getting apps from $git_repo..."
-    git clone $git_repo $data_dir
+    ynh_exec_as_app git clone $git_repo $data_dir
 fi
 
 #=================================================
@@ -84,7 +84,7 @@ ynh_config_add --template="appdaemon.yaml" --destination="$data_dir/config/appda
 # FIXME: this should be handled by the core in the future
 ### You may need to use chmod 600 instead of 400,
 ### for example if the app is expected to be able to modify its own config
-chmod -R 600 "$data_dir/config"
+chmod -R 711 "$data_dir/config"
 chown -R "$app:$app" "$data_dir/config"
 
 ### For more complex cases where you want to replace stuff using regexes,
