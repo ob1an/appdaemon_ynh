@@ -1,0 +1,16 @@
+# appdaemon.yaml
+appdaemon:
+  time_zone: CET
+  latitude: 51.725
+  longitude: 14.3434
+  elevation: 0
+  production_mode: true
+  plugins:
+    HASS:
+      type: hass
+      ha_url: __HA_URL__
+      token: __HA_TOKEN__
+  use_dictionary_unpacking: true
+logs:
+  access_log:
+    filename: /var/log/__APP__/acess.log
